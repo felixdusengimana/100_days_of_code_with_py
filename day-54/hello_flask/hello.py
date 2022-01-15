@@ -1,7 +1,6 @@
 from flask import Flask
 
 app = Flask(__name__)
-print(__name__)
 
 
 @app.route("/")
@@ -14,10 +13,10 @@ def bye():
     return "Bye!"
 
 
-@app.route("/username/<name>")
-def greet(name):
-    return f"Hello {name}!"
+@app.route("/username/<name>/<int:age>")
+def greet(name, age):
+    return f"Hello there {name+ '12' } with years old {age+1}!"
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
