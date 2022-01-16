@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 import requests
 
-posts = requests.get("https://api.npoint.io/43644ec4f0013682fc0d").json()
+posts = requests.get("https://jsonplaceholder.typicode.com/posts").json()
 
 app = Flask(__name__)
 
@@ -28,6 +28,7 @@ def about():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
