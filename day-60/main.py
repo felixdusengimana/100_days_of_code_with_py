@@ -3,8 +3,8 @@ import smtplib
 
 app = Flask(__name__)
 
-OWN_EMAIL = "phelixdusengimana@gmail.com"
-OWN_PASSWORD = "phelix@gmail.com"
+OWN_EMAIL = YOUR OWN_EMAIL
+OWN_PASSWORD = YOUR OWN_PASSWORD
 
 
 @app.route("/")
