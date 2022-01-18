@@ -13,6 +13,7 @@ class LoginForm(FlaskForm):
 
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
+Bootstrap(app)
 
 
 @app.route("/")
