@@ -8,19 +8,24 @@ import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 Bootstrap(app)
 db = SQLAlchemy(app)
 
 
 class Movie(db.Model):
-    id
-    title
-    year
-    description
-    rating
-    ranking
-    review
-    img_url
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(250), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.Text(250), nullable=True)
+    rating = db.Column(db.Float, nullable=True)
+    ranking = db.Column(db.Integer, unique=True, nullable=False)
+    review = db.Column(db.String(250), nullable=True)
+    img_url = db.Column(db.Integer, nullable=False, unique=True)
+
+
+db.create_all()
+
 
 @app.route("/")
 def home():
