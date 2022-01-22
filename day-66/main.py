@@ -109,11 +109,12 @@ def update_cafe(cafe_id):
     new_price = request.args.get("new_price")
     cafe = db.session.query(Cafe).get(cafe_id)
     if cafe:
+        cafe.coffee_price = new_price
+        db.session.commit()
         return jsonify(response={
-            "code": cafe_id,
-            "body": cafe.name,
+            "code": 200,
             "status": "success",
-            "message": "Successfully added the new cafe."
+            "message": f"{cafe.name} Successfully updated the price."
         })
     else:
         return jsonify(response={
