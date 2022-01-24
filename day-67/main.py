@@ -34,7 +34,7 @@ class BlogPost(db.Model):
     img_url = db.Column(db.String(250), nullable=False)
 
 
-##WTForm
+# #WTForm
 class CreatePostForm(FlaskForm):
     title = StringField("Blog Post Title", validators=[DataRequired()])
     subtitle = StringField("Subtitle", validators=[DataRequired()])
@@ -46,15 +46,13 @@ class CreatePostForm(FlaskForm):
 
 @app.route('/')
 def get_all_posts():
+    posts = db.session.query(BlogPost).all()
     return render_template("index.html", all_posts=posts)
 
 
 @app.route("/post/<int:index>")
 def show_post(index):
-    requested_post = None
-    for blog_post in posts:
-        if blog_post["id"] == index:
-            requested_post = blog_post
+    requested_post = db.session.query(BlogPost).get(index)
     return render_template("post.html", post=requested_post)
 
 
@@ -66,6 +64,12 @@ def about():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
+@app.route("/new")
+@app.route("/edit")
+def edit_post():
+    return "hello"
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
