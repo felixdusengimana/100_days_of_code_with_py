@@ -65,7 +65,7 @@ def about():
 def contact():
     return render_template("contact.html")
 
-@app.route("/new")
+@app.route("/new-post")
 @app.route("/edit")
 def edit_post():
     return "hello"
