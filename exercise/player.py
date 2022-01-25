@@ -1,5 +1,6 @@
 class Player:
     def __init__(self):
+        print(__name__)
         self.username = ""
         self.email = ""
 

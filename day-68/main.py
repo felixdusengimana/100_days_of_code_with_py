@@ -22,7 +22,6 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(1000))
 
 
-
 # Line below only required once, when creating DB.
 db.create_all()
 
