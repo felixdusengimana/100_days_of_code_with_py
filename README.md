@@ -1,2 +1,3 @@
-# 100_days_of_code_with_py
-My 100 Days of learning python step by steps
+### About this repository
+
+This repository contains every code I wrote from day
