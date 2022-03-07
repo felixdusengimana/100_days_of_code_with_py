@@ -4,6 +4,8 @@ import os
 
 OWN_Endpoint = os.environ.get("OWN_Endpoint")
 
+# use: $Env:DEBUG = "true" to set env or use .env and install
+
 api_key =""
 account_sid =os.environ.get("account_sid")
 auth_token = os.environ.get("auth_token")
